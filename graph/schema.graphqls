@@ -1,0 +1,13 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+directive @goField(forceResolver: String, name: String) on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+directive @binding(constraint: String!) on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+type Query {
+  users: [User!]! @goField(forceResolver: true)
+}
+
+type Mutation {
+  user: UserOps! @goField(forceResolver: true)
+}
